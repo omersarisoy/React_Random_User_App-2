@@ -1,37 +1,4 @@
 body {
-  background-color: orange;
-  min-width: 100%;
-
+    height: 100%;
+    background: linear-gradient(180deg, rgb(254,200,97) 50%, rgb(242,245,248) 50%);
 }
-/* 
-<div className="par-container">
-                  <div className="name-info">
-                  <p>My name is</p>
-                  <h3>name</h3>
-                  </div>
-
-                  <div className="email-info">
-                  <p>My email is</p>
-                  <h3>email</h3>
-                  </div>
-
-                  <div className="age-info">
-                  <p>My age is</p>
-                  <h3>age</h3>
-                  </div>
-
-                  <div className="street-info">
-                  <p>My street is</p>
-                  <h3>street</h3>
-                  </div>
-
-                  <div className="phone-info">
-                  <p>My phone is</p>
-                  <h3>phone</h3>
-                  </div>
-
-                  <div className="password-info">
-                  <p>My password is</p>
-                  <h3>password</h3>
-                  </div>
-              </div> */

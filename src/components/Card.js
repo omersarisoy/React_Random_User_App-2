@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css"
+import "./Card.css";
 import ageMan from "../assets/growing-up-man.svg";
 import ageWoman from "../assets/growing-up-woman.svg";
 import email from "../assets/mail.svg";
@@ -8,14 +8,17 @@ import profilWoman from "../assets/woman.svg";
 import street from "../assets/map.svg";
 import password from "../assets/padlock.svg";
 import phone from "../assets/phone.svg";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
+import {FaUserTimes} from 'react-icons/fa';
+
+
+
+
 
 const Card = ({ ömer, randomUser }) => {
   const [showUser, setShowUser] = useState("");
   const [userInfo, setUserInfo] = useState("");
-  const [showTable, setShowTable] = useState(false)
- console.log(ömer)
-
+  const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {
     setShowUser(
@@ -26,7 +29,7 @@ const Card = ({ ömer, randomUser }) => {
         </h3>
       </>
     );
-  }, []);
+  }, [ömer]);
 
   const getUserInfo = (topic, value1, value2) => {
     return setShowUser(
@@ -41,27 +44,32 @@ const Card = ({ ömer, randomUser }) => {
 
   const addUserInfo = () => {
     setShowTable(true);
-    setUserInfo((prevInfo) => 
-        [...prevInfo,     
-        <tr>
-            <td>{ömer.name.first}</td>
-            <td>{ömer.name.last}</td>
-            <td>{ömer.email}</td>
-            <td>{ömer.phone}</td>
-            <td>{ömer.dob.age}</td>
-            <td>{}</td>
-        </tr>]
-    ) 
-};
+    setUserInfo((prevInfo) => [
+      ...prevInfo,
+      <tr key={Math.random()}>
+        <td>{ömer.name.first}</td>
+        <td>{ömer.name.last}</td>
+        <td>{ömer.email}</td>
+        <td>{ömer.phone}</td>
+        <td>{ömer.dob.age}</td>
+        <td><button onClick={DeleteUser} type="button"> <FaUserTimes /> </button></td>
+      </tr>
+    ]);
 
-    
+    const DeleteUser =(e)=> {
+        e.currentTarget.parentElement.parentElement.remove();        
+    }
+  };
+
   return (
     <div>
       <div className="card-container">
-        <img src={ömer.picture.large} alt="profile-picture" />
+        <div className="profile-picture">
+          <img src={ömer.picture.large} alt="profile-picture" />
+        </div>
         <div className="card-info">{showUser}</div>
         <div className="image-container">
-          {ömer.gender == "male" ? (
+          {ömer.gender === "male" ? (
             <img
               src={profilMan}
               alt="profilman"
@@ -85,7 +93,7 @@ const Card = ({ ömer, randomUser }) => {
             onMouseOver={() => getUserInfo("Email", ömer.email)}
           />
 
-          {ömer.gender == "male" ? (
+          {ömer.gender === "male" ? (
             <img
               src={ageMan}
               alt="ageman"
@@ -117,11 +125,17 @@ const Card = ({ ömer, randomUser }) => {
             onMouseOver={() => getUserInfo("Password", ömer.login.password)}
           />
         </div>
+
+        <div className="button">
+          <button onClick={randomUser}> NEW USER </button>
+          <button onClick={addUserInfo}> ADD USER </button>
+        </div>
+
         <div >
-            {showTable ? (
+          {showTable ? (
             <table >
-              <thead>
-                <tr key={ömer.id.value} >
+              <thead className="table-show">
+                <tr key={ömer.id.value}>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
@@ -129,16 +143,11 @@ const Card = ({ ömer, randomUser }) => {
                   <th>Age </th>
                   <th>Delete </th>
                 </tr>
-              </thead>   
-              <tbody className="user-table" >
-                {userInfo}
-              </tbody>
-          </table>): null}
-          
-           
+              </thead>
+              <tbody className="user-table">{userInfo}</tbody>
+            </table>
+          ) : null}
         </div>
-        <button onClick={randomUser}> NEW USER </button>
-        <button onClick={addUserInfo}> ADD USER </button>
       </div>
     </div>
   );

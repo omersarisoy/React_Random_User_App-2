@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div>
       <div className="App">
-          <img src={cw} alt="cw_logo"/>
+          <img src={cw} alt="cw_logo" style={{"margin":"50px"}}/>
 
           {user.map((item,index) => {
             return <Card ömer={item} key={index} randomUser={randomUser}/>

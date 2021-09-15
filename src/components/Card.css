@@ -1,3 +1,81 @@
-.user-table table, th, td{
-    border: 1px solid black;
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 650px;
+  background: linear-gradient(180deg, rgb(241, 244, 247) 25%, white 25%);
+  
+  overflow: auto;
+}
+
+.profile-picture {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-info {
+  text-align: center;
+  margin: 20px;
+  padding: 5px;
+  font-size: larger;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding-right: 30px;
+  margin-top: 15px;
+}
+
+.image-container img {
+  width: 40px;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 25px;
+  align-items: center;
+}
+
+button {
+  background-color: purple;
+  padding: 5px 25px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0.8;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  margin: 20px;
+}
+button:active {
+  transform: scale(0.98);
+  opacity: 1;
+}
+
+td {
+  font-size: 1 rem;
+  text-align: center;
+  padding: 3px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+th {
+  font-size: 1 rem;
+  background-color: rgb(228, 174, 74);
+  border: 1px solid white;
+  font-style: italic;
+  padding: 5px;
+  margin: 3px;
+  border-radius: 5px;
 }
