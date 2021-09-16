@@ -12,9 +12,6 @@ import { useState, useEffect} from "react";
 import {FaUserTimes} from 'react-icons/fa';
 
 
-
-
-
 const Card = ({ ömer, randomUser }) => {
   const [showUser, setShowUser] = useState("");
   const [userInfo, setUserInfo] = useState("");

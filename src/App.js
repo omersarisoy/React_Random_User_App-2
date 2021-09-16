@@ -3,9 +3,6 @@ import "./App.css"
 import cw from "./assets/cw.svg"
 import Card from './components/Card'
 
-
-
-
 const App = () => {
   const [user, setUser] = useState([])
 
@@ -26,12 +23,10 @@ const App = () => {
           <img src={cw} alt="cw_logo" style={{"margin":"50px"}}/>
 
           {user.map((item,index) => {
-            return <Card ömer={item} key={index} randomUser={randomUser}/>
-            
+            return <Card ömer={item} key={index} randomUser={randomUser}/>            
           })}
 
       </div>
-
     </div>
   )
 }
